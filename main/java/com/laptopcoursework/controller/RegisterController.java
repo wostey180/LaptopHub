@@ -65,14 +65,16 @@ public class RegisterController extends HttpServlet {
             boolean isAdded = registerService.addUser(userModel);
 
             if (isAdded) {
-                redirectionUtil.setMsgAndRedirect(request, response, "success", 
-                    "Registration successful!", RedirectionUtil.loginUrl);
+            	request.getSession().setAttribute("user", userModel);
+                response.sendRedirect(request.getContextPath() + RedirectionUtil.loginUrl);
             } else {
-                setErrorAndRedirect(request, response, "Registration failed. Please try again");
+            	request.getSession().setAttribute("error", "Registration failed. Please try again");
+                response.sendRedirect(request.getContextPath() + RedirectionUtil.registerUrl);
             }
         } catch (Exception e) {
             e.printStackTrace();
             setErrorAndRedirect(request, response, "System error during registration");
+            response.sendRedirect(request.getContextPath() + RedirectionUtil.registerUrl);
         }
     }
 
@@ -111,7 +113,8 @@ public class RegisterController extends HttpServlet {
             password,
             request.getParameter("address"),
             request.getParameter("phone"),
-            imagePath
+            imagePath,
+            "user"
         );
     }
     

@@ -20,6 +20,7 @@ public class LoginController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
+    	request.getSession().removeAttribute("error");
         request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
     }
 
@@ -49,12 +50,21 @@ public class LoginController extends HttpServlet {
                 session.setAttribute("address", rs.getString("user_address"));
                 session.setAttribute("phone", rs.getString("user_phone"));
                 session.setAttribute("imageUrl", rs.getString("image_path"));
+                session.setAttribute("userRole", rs.getString("user_role"));
+                
+                //Role-based redirection
+                String role = rs.getString("user_role");
+                if ("admin".equalsIgnoreCase(role)) {
+                    response.sendRedirect(request.getContextPath() + "/admin");
+                } else {
+                    response.sendRedirect(request.getContextPath() + "/home");
+                }
                 
                 // Set JavaScript alert flag
-                request.setAttribute("showLoginSuccess", true);
+                //request.setAttribute("showLoginSuccess", true);
                 
                 // Forward to home page with alert
-                request.getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(request, response);
+               // request.getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(request, response);
             	}
             	else {
             		request.setAttribute("error", "Invalid username or password");

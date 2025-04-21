@@ -8,6 +8,7 @@ public class UserModel {
 	private String user_address;
 	private String user_phone;
 	private String imageUrl;
+	private String user_role;
 
 	
 	private ProductModel product;
@@ -25,10 +26,11 @@ public class UserModel {
 	public UserModel(String username, String user_password) {
 		this.username = username;
 		this.user_password = user_password;
+		this.user_role = "user";
 	}
 	
 	public UserModel(int user_id, String username, String user_email, String user_password, String user_address,
-			String user_phone, String imageUrl) {
+			String user_phone, String imageUrl, String user_role) {
 		super();
 		this.user_id = user_id;
 		this.username = username;
@@ -37,17 +39,19 @@ public class UserModel {
 		this.user_address = user_address;
 		this.user_phone = user_phone;
 		this.imageUrl = imageUrl;
+		this.user_role = user_role;
 	
 	}
 	
 	public UserModel(String username, String user_email, String user_password, String user_address,
-			String user_phone, String imageUrl) {
+			String user_phone, String imageUrl, String userRole) {
 		this.username = username;
 		this.user_email = user_email;
 		this.user_password = user_password;
 		this.user_address = user_address;
 		this.user_phone = user_phone;
 		this.imageUrl = imageUrl;
+		this.user_role = user_role;
 		
 	}
 	
@@ -94,6 +98,12 @@ public class UserModel {
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+	}
+	public String getUser_role() {
+		return user_role;
+	}
+	public void setUser_role(String user_role) {
+		this.user_role = user_role;
 	}
 }
 	
