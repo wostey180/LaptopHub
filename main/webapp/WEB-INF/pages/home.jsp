@@ -25,7 +25,7 @@
     <h2 class="section-title"></h2>
     <section class="home-hero">
         <div class="hero-image-container">
-          <img src="./images/banners/welcomeimg.png" alt="Welcome to Laptop" class="hero-image">
+          <img src="./images/banners/welcomeimg.png" alt="Welcome to Laptop Hub" class="hero-image">
         </div>
       </section>
 
