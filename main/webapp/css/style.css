@@ -1,0 +1,211 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+:root {
+  --color-light: #fdfdfd;
+  --color-medium: #f5eee3;
+  --color-dark: #333;
+  --color-accent: #f4c430;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+.section-title {
+  text-align: center;
+  margin: 2rem 0 1.5rem;
+  font-size: 2rem;
+  color: var(--color-dark);
+}
+
+header {
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(245, 235, 218, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-dark);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: var(--color-accent);
+}
+
+.logo img {
+  height: 80px;
+  width: 80px;
+}
+
+/* Nav Links */
+nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+nav ul li a {
+  color: var(--color-dark);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+nav ul li a:hover {
+  color: var(--color-accent);
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+nav ul li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+nav ul li .contact-link {
+  border: 2px solid var(--color-dark); 
+  padding: 0.2rem 0.5rem; 
+  border-radius: 5px; 
+  background-color: rgba(0, 0, 0, 0); 
+  color: var(--color-dark); 
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; 
+}
+
+nav ul li .contact-link:hover {
+  border-color: var(--color-accent); 
+  background-color: var(--color-accent); 
+  color: #fff; 
+}
+
+.cart-link i {
+  margin-right: 8px; 
+}
+
+.fas {
+  font-family: 'Font Awesome 5 Free'; 
+  font-weight: 900;
+}
+
+h1, h2, h3 {
+  color: var(--color-dark);
+  font-family: 'Montserrat', sans-serif;
+}
+
+footer {
+  background-color: var(--color-medium);
+  color: var(--color-dark);
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-text {
+  flex: 1;
+  text-align: left;
+  padding-right: 2rem;
+}
+
+.footer-content h3 {
+  color: var(--color-dark);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center; /* Centers the logo horizontally */
+  margin-bottom: 1rem; /* Space below the logo */
+}
+
+.footer-logo img {
+  height: 80px; /* Set the logo size */
+  width: 80px; /* Set the logo size */
+  transition: transform 0.3s ease; /* Smooth effect for hover */
+}
+
+.footer-logo img:hover {
+  transform: scale(1.05); /* Slightly enlarge the logo on hover */
+}
+
+.map-container {
+  flex: 1;
+  max-width: 300px;
+}
+
+.map-container h3 {
+  margin-top: 0;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 200px;
+  border: none;
+}
+
+.cart {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--color-light);
+}
+
+.error-message {
+  font-size: 0.9rem;
+  color: red;
+  max-width: 600px;
+  margin-bottom: 1rem;
+}
+
+
+
+
+
+

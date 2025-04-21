@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+/* login page start */
+
+/* Login Page Specific Styles */
+.login-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 120px); /* Adjust based on header/footer height */
+  padding: 2rem;
+  background-color: var(--color-medium);
+}
+
+.login-container {
+  background-color: var(--color-light);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 2px solid var(--color-medium);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-container h2 {
+  color: var(--color-dark);
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.login-input-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+  padding: 0 1rem;
+}
+
+.login-input-group label {
+  display: block;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.login-input-group input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-medium);
+  border-radius: 8px;
+  background-color: rgba(255,255,255,0.8);
+  color: var(--color-dark);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin: 0 auto; 
+  display: block;
+}
+
+.login-input-group input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(244,196,48,0.2);
+}
+
+.login-links {
+  display: flex;
+  justify-content: flex-end;
+  margin:0;
+  margin-top: 1rem;
+}
+
+.login-links a {
+  color: var(--color-dark);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.login-links a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.login-button {
+  width: 60%;
+  padding: 0.75rem;
+  background-color: var(--color-dark);
+  border: none;
+  border-radius: 25px;
+  color: var(--color-light);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: var(--color-dark);
+  color: var(--color-accent);
+  box-shadow: 0 0 10px rgba(244, 196, 48, 1);
+}
+
+.login-signup {
+  margin-top: 1.5rem;
+}
+
+.login-signup a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.login-signup a:hover {
+  text-decoration: underline;
+}
+
+/* login page end */

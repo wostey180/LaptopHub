@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+/* error page start*/
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.error-code {
+  font-size: 8rem;
+  font-weight: bold;
+  color: #343a40;
+  margin: 0;
+  line-height: 1;
+}
+
+.error-title {
+  font-size: 2rem;
+  color: #495057;
+  margin: 1rem 0;
+}
+
+.error-message {
+  font-size: 1.25rem;
+  color: #6c757d;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.error-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #f4c430;
+  color: #343a40;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.error-button:hover {
+  background-color: #e5b800;
+}
+
+
+/* error page end*/
