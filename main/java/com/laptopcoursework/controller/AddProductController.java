@@ -15,7 +15,7 @@ import com.laptopcoursework.util.RedirectionUtil;
 
 @WebServlet("/add-product")
 @MultipartConfig(
-    fileSizeThreshold = 1024 * 1024 * 2,    // 2MB
+    fileSizeThreshold = 1024 * 1024 * 2,    // 2MB Megabyte
     maxFileSize = 1024 * 1024 * 10,         // 10MB
     maxRequestSize = 1024 * 1024 * 50       // 50MB
 )
