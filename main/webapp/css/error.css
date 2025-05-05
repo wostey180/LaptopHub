@@ -39,8 +39,8 @@
 .error-button {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background-color: #f4c430;
-  color: #343a40;
+  background-color: var(--color-dark);
+  color: var(--color-white);
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
@@ -48,7 +48,7 @@
 }
 
 .error-button:hover {
-  background-color: #e5b800;
+  background-color: #2980b9;
 }
 
 

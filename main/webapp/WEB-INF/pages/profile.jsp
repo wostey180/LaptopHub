@@ -27,7 +27,12 @@
             </div>
             <div class="profile-actions">
                 <a href="${pageContext.request.contextPath}/logout" class="logout-btn">Logout</a>
+                <a href="${pageContext.request.contextPath}/profile/update-profile" class="update-profile-btn">
+             <i class="fas fa-edit"></i> Update Profile
+             </a>
             </div>
+            
+            
         </div>
     </main>
     

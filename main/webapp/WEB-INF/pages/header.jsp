@@ -5,25 +5,46 @@
   	<link rel="icon" href="${pageContext.request.contextPath}/images/logo/logo1.png" type="image/png">
   	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
+
+
 <header>
-    <nav>
-        <a href="index.html" class="logo">
-            <img src="images/logo/logo.png" alt="Laptop Hub">
-        </a>
-        <ul>
-            <li><a href="${pageContext.request.contextPath}/home">Home</a></li>
-            <li><a href="${pageContext.request.contextPath}/products">Products</a></li>
-            <li><a href="${pageContext.request.contextPath}/about">About</a></li>
-            <!--  <li><a href="${pageContext.request.contextPath}/login">Login</a></li>
-            <li><a href="${pageContext.request.contextPath}/register">Register</a></li> -->
-            <li><a href="${pageContext.request.contextPath}/contact" class="contact-link">Contact Us</a></li>
-            <li >
-                <% if (session.getAttribute("username") != null) { %>
-                    <a href="${pageContext.request.contextPath}/profile" class="nav-icons">Profile</a>
+        <div class="container header-container">
+            <!-- <div class="logo">Laptop<span>Hub</span></div> -->
+            <a href="index.html" class="logo">
+            <img src="${pageContext.request.contextPath}/images/logo/logo.png" alt="Laptop Hub">
+        	</a>
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="${pageContext.request.contextPath}/home" class="active">Home</a></li>
+                    <li><a href="${pageContext.request.contextPath}/products">Products</a></li>
+                    <li><a href="${pageContext.request.contextPath}/about">About Us</a></li>
+                    <li><a href="${pageContext.request.contextPath}/contact">Contact</a></li>
+	                
+	                <% if (session.getAttribute("userRole") != null && session.getAttribute("userRole").equals("admin")) { %>
+				    <li><a href="${pageContext.request.contextPath}/admin/dashboard">Dashboard</a></li>
+					<% } %>
+
+                    
+                </ul>
+            </nav>
+            <div class="header-icons">
+            	<% if (session.getAttribute("username") != null) { %>
+                <a href="${pageContext.request.contextPath}/profile" class="header-icon"><i class="fas fa-user"></i></a>
+                	<% if (session.getAttribute("userRole") != null && !session.getAttribute("userRole").equals("admin")) { %>
+                	<a href="${pageContext.request.contextPath}/cart" class="header-icon"><i class="fas fa-shopping-cart"></i></a>
+                	<% } %>
                 <% } else { %>
-                    <a href="${pageContext.request.contextPath}/login" class="nav-icons">Login</a>
+                <nav id="nav-menu">
+                <ul>
+                    <li><a href="${pageContext.request.contextPath}/login">Login</a></li>
+                </ul>
+                </nav>
                 <% } %>
-            <li><a href="${pageContext.request.contextPath}/cart" class="cart-link"><i class="fas fa-shopping-cart"></i></a></li>
-        </ul>
-    </nav>
-</header>
+                
+                
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>

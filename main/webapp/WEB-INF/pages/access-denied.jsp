@@ -20,7 +20,7 @@
     <h1 class="error-code">ACCESS DENIED</h1>
     <h2 class="error-title">Oops.. you dont have access to view this page.</h2>
     <p class="error-message">Page is only accessible to admins....</p>
-    <a href="index.html" class="error-button">Go to Homepage</a>
+    <a href="<%= request.getContextPath() %>/home" class="error-button">Go to Homepage</a>
   </div>
     </main>
     <jsp:include page="footer.jsp" />

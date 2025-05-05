@@ -1,0 +1,113 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="com.laptopcoursework.model.ProductModel" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LaptopHub - Update Product</title>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/update-product.css" />
+    <link rel="stylesheet"  href="<%= request.getContextPath() %>/css/style.css" />
+    <link rel="icon" href="${pageContext.request.contextPath}/images/logo/logo1.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-actions {
+            grid-column: span 2;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <jsp:include page="header.jsp" />
+
+    <main class="update-product-main">
+        <div class="update-product-container">
+            <h2>Update Product</h2>
+            <% if (session.getAttribute("error") != null) { %>
+                <div class="error-message">
+                    <%= session.getAttribute("error") %>
+                </div>
+                <% session.removeAttribute("error"); %>
+            <% } %>
+            
+            <% 
+                ProductModel product = (ProductModel) request.getAttribute("product_info");
+                if (product != null) { 
+            %>
+            <form action="${pageContext.request.contextPath}/admin/update-product" method="post" enctype="multipart/form-data">
+                <div class="form-grid">
+                    <!-- Left Column -->
+                    <div class="form-group">
+                        <label for="product_id">Product ID:</label>
+                        <input type="number" id="product_id" name="product_id" value="<%= product.getProduct_id() %>" readonly required/>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="product_name">Product Name:</label>
+                        <input type="text" id="product_name" name="product_name" value="<%= product.getProduct_name() %>" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="brand">Brand:</label>
+                        <input type="text" id="brand" name="brand" value="<%= product.getBrand() %>" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="model">Model:</label>
+                        <input type="text" id="model" name="model" value="<%= product.getModel() %>" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Price:</label>
+                        <input type="number" id="price" name="price" step="0.01" value="<%= product.getPrice() %>" required/>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="form-group">
+                        <label for="stock_quantity">Stock Quantity:</label>
+                        <input type="number" id="stock_quantity" name="stock_quantity" value="<%= product.getStock_quantity() %>" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specs">Specifications:</label>
+                        <textarea id="specs" name="specs" rows="3" required><%= product.getSpecs() %></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description" rows="3" required><%= product.getDescription() %></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product_image">Product Image:</label>
+                        <input type="file" id="product_image" name="product_image" accept="image/*">
+                        <input type="hidden" name="existing_image" value="<%= product.getImage_path() %>">
+                        <% if (product.getImage_path() != null && !product.getImage_path().isEmpty()) { %>
+                            <p>Current image: <%= product.getImage_path() %></p>
+                        <% } %>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="submit" class="update-product-button">Update Product</button>
+                        <a href="<%= request.getContextPath() %>/admin" class="update-product-cancel">Cancel</a>
+                    </div>
+                </div>
+            </form>
+            <% } else { %>
+                <p>No product information found.</p>
+            <% } %>
+        </div>
+    </main>
+    <jsp:include page="footer.jsp" />
+</body>
+</html>

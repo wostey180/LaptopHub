@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.laptopcoursework.config.DbConfig;
+import com.laptopcoursework.model.UserModel;
+
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
@@ -43,19 +45,34 @@ public class LoginController extends HttpServlet {
             	String decryptedPassword = com.laptopcoursework.util.PasswordUtil.decrypt(encryptedPassword, username);
                 
             	if (decryptedPassword != null && decryptedPassword.equals(inputPassword)) {
+            		
+        		UserModel loggedInUser = new UserModel(
+        				Integer.parseInt(rs.getString("user_id")),
+                        username,
+                        rs.getString("user_email"),
+                        rs.getString("user_password"),  // password may be encrypted
+                        rs.getString("user_address"),
+                        rs.getString("user_phone"),
+                        rs.getString("image_path"),
+                        rs.getString("user_role")
+                    );
+        		
             	// Create session
                 HttpSession session = request.getSession();
+                session.setAttribute("user", loggedInUser);
+                
                 session.setAttribute("username", username);
                 session.setAttribute("email", rs.getString("user_email"));
                 session.setAttribute("address", rs.getString("user_address"));
                 session.setAttribute("phone", rs.getString("user_phone"));
                 session.setAttribute("imageUrl", rs.getString("image_path"));
                 session.setAttribute("userRole", rs.getString("user_role"));
+                session.setAttribute("userId", Integer.parseInt(rs.getString("user_id")));
                 
                 //Role-based redirection
                 String role = rs.getString("user_role");
                 if ("admin".equalsIgnoreCase(role)) {
-                    response.sendRedirect(request.getContextPath() + "/admin");
+                    response.sendRedirect("admin/dashboard");
                 } else {
                     response.sendRedirect(request.getContextPath() + "/home");
                 }

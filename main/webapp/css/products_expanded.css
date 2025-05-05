@@ -14,14 +14,16 @@
 }
 
 .product-expanded-image {
-  flex: 1;
+  
   min-width: 300px;
 }
 
 .product-expanded-image img {
-  width: 100%;
+  
   border-radius: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  height: 300px;
+  width: 300px;
 }
 
 .product-expanded-info {
@@ -129,20 +131,20 @@
 }
 
 .btn-primary {
-  background: var(--color-accent);
-  color: var(--color-dark);
+  background-color: #2980b9;
+  color: var(--color-white);
 }
 
 .btn-primary:hover {
-  background: #e5b800;
+  background: var(--color-dark);
 }
 
 .btn-secondary {
   background: var(--color-dark);
-  color: var(--color-light);
+  color: var(--color-white);
 }
 
 .btn-secondary:hover {
-  background: #555;
+  background-color: #2980b9;
 }
 /* product expanded page end */

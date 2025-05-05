@@ -13,6 +13,7 @@ public class RedirectionUtil {
 	public static final String registerUrl = baseUrl + "register";
 	public static final String loginUrl = baseUrl + "login";
 	public static final String homeUrl = baseUrl + "home";
+	public static final String updateProfileUrl = baseUrl + "update-profile";
 
 	public void setMsgAttribute(HttpServletRequest req, String msgType, String msg) {
 		req.setAttribute(msgType, msg);

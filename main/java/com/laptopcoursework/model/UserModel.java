@@ -55,6 +55,10 @@ public class UserModel {
 		
 	}
 	
+	public UserModel(){
+		
+	}
+	
 	
 	public int getUser_id() {
 		return user_id;

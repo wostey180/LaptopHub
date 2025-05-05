@@ -22,7 +22,7 @@
   font-weight: bold;
   margin-bottom: 2rem;
   text-align: center;
-  color: var(--color-accent);
+  color: var(--color-primary);
 }
 
 .admin-nav {
@@ -36,7 +36,7 @@
 }
 
 .admin-nav a {
-  color: var(--color-light);
+  color: var(--color-white);
   text-decoration: none;
   display: block;
   padding: 0.5rem;
@@ -56,7 +56,7 @@
 
 .admin-main {
   padding: 2rem;
-  background-color: var(--color-medium);
+  background-color: var(--color-white);
 }
 
 .admin-stats {

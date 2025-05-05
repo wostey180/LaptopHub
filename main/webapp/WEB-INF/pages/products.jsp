@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,97 +11,69 @@
   <link rel="stylesheet"  href="<%= request.getContextPath() %>/css/style.css" />
   <link rel="icon" href="${pageContext.request.contextPath}/images/logo/logo1.png" type="image/png">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    .badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 3px;
+      font-size: 12px;
+    }
+    .sale-badge {
+      background-color: #f44336;
+    }
+    .product-image {
+      position: relative;
+    }
+  </style>
 </head>
 <body>
-  <jsp:include page="header.jsp" />
-  <main>
-    <!-- Navbar -->
-    <!-- <header>
-      
-    </header> -->
-    
-    <!-- Title -->
-    <h2 class="section-title">THE BEST PRODUCT</h2>
+    <jsp:include page="header.jsp" />
 
-    <!-- Product Section -->
-    <section class="product-grid"> <!-- 1st row-->
-      <div class="product-card">
-        <a href="<%= request.getContextPath() %>/products_expanded" class="product-link">
-          <img src="<%= request.getContextPath() %>/images/products/laptop1.png" alt="Laptop 1" />
-          <p class="product-title">HP Pavilion 15</p>
-          <p class="product-price">Rs. 99,999</p>
-          <button>Add to cart</button>
-        </a>
-      </div>
-
-      <div class="product-card">
-        <a href="<%= request.getContextPath() %>/products_expanded" class="product-link">
-          <img src="<%= request.getContextPath() %>/images/products/laptop2.png" alt="Laptop 2" />
-          <p class="product-title">Dell Inspiron 14</p>
-          <p class="product-price">Rs. 99,999</p>
-          <button>Add to cart</button>
-        </a>
-      </div>
-
-      <div class="product-card">
-        <a href="<%= request.getContextPath() %>/products_expanded" class="product-link">
-          <img src="<%= request.getContextPath() %>/images/products/laptop1.png" alt="Laptop 3" />
-          <p class="product-title">Lenovo IdeaPad 5</p>
-          <p class="product-price">Rs. 99,999</p>
-          <button>Add to cart</button>
-        </a>
-      </div>
-
-      <div class="product-card">
-        <a href="<%= request.getContextPath() %>/products_expanded" class="product-link">
-          <img src="<%= request.getContextPath() %>/images/products/laptop2.png" alt="Laptop 4" />
-          <p class="product-title">Asus VivoBook</p>
-          <p class="product-price">Rs. 99,999</p>
-          <button>Add to cart</button>
-        </a>
+    <section class="page-banner">
+      <div class="container">
+          <h1>Our Laptops</h1>
+          <p>Browse our wide selection of premium laptops for every need</p>
       </div>
     </section>
 
-    <section class="product-grid"> <!-- 2nd row-->
-      <div class="product-card">
-        <a href="<%= request.getContextPath() %>/products_expanded" class="product-link">
-          <img src="<%= request.getContextPath() %>/images/products/laptop1.png" alt="Laptop 5" />
-          <p class="product-title">HP Pavilion 15</p>
-          <p class="product-price">Rs. 99,999</p>
-          <button>Add to cart</button>
-        </a>
-      </div>
+    <main class="products-page">
+      <section class="container">
+        <h2 class="section-title">All Laptops</h2>
 
-      <div class="product-card">
-        <a href="<%= request.getContextPath() %>/products_expanded" class="product-link">
-          <img src="<%= request.getContextPath() %>/images/products/laptop2.png" alt="Laptop 6" />
-          <p class="product-title">Dell Inspiron 14</p>
-          <p class="product-price">Rs. 99,999</p>
-          <button>Add to cart</button>
-        </a>
-      </div>
+        <div class="products-grid">
+          <c:forEach var="product" items="${products}">
+            <div class="product-card">
+              <div class="product-image">
+                <img src="${pageContext.request.contextPath}/${product.image_path}" 
+                     alt="${product.product_name}"
+                     onerror="this.onerror=null;this.src='${pageContext.request.contextPath}/images/default-product.png'">
+              </div>
+              <div class="product-info">
+                <div class="product-category">${product.brand}</div>
+                <h3 class="product-title">${product.product_name}</h3>
+                <div class="product-price">$${product.price}</div>
+                <a href="${pageContext.request.contextPath}/product-details?id=${product.product_id}" 
+                   class="product-button">View Details</a>
+              </div>
+            </div>
+          </c:forEach>
+          
+          <c:if test="${empty products}">
+            <div class="no-products">
+              <p>No products available at the moment.</p>
+            </div>
+          </c:if>
+        </div>
+        
+        <p>&nbsp;</p>
+        <hr>
+      </section>
+    </main>
 
-      <div class="product-card">
-        <a href="<%= request.getContextPath() %>/products_expanded" class="product-link">
-          <img src="<%= request.getContextPath() %>/images/products/laptop1.png" alt="Laptop 7" />
-          <p class="product-title">Lenovo IdeaPad 5</p>
-          <p class="product-price">Rs. 99,999</p>
-          <button>Add to cart</button>
-        </a>
-      </div>
-
-      <div class="product-card">
-        <a href="<%= request.getContextPath() %>/products_expanded" class="product-link">
-          <img src="<%= request.getContextPath() %>/images/products/laptop2.png" alt="Laptop 8" />
-          <p class="product-title">Asus VivoBook</p>
-          <p class="product-price">Rs. 99,999</p>
-          <button>Add to cart</button>
-        </a>
-      </div>
-    </section>
-
-    <!-- <script src="<%= request.getContextPath() %>/script.js"></script> -->
-  </main>
-  <jsp:include page="footer.jsp" />
+    <jsp:include page="footer.jsp" />
 </body>
 </html>

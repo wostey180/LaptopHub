@@ -31,6 +31,8 @@ public class AdminFilter implements Filter {
             return;
         }
         
+        
+        
         // User is admin, continue to requested admin page
         chain.doFilter(request, response);
     }

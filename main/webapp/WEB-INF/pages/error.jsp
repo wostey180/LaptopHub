@@ -20,7 +20,7 @@
     <h1 class="error-code">404</h1>
     <h2 class="error-title">Oops.. page not found</h2>
     <p class="error-message">Try again, something went wrong...</p>
-    <a href="index.html" class="error-button">Go to Homepage</a>
+    <a href="<%= request.getContextPath() %>/home" class="error-button">Go to Homepage</a>
   </div>
     </main>
     <jsp:include page="footer.jsp" />
