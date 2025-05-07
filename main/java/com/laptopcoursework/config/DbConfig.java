@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 /**
  * DbConfig is a configuration class for managing database connections. It
- * handles the connection to a MySQL database using JDBC.
+ * handles the connection to a MySQL database using JDBC. regayn
  */
 public class DbConfig {
 
