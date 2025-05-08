@@ -47,6 +47,7 @@
                         <img src="images/avatars/suave.png" alt="Suave Shrestha" class="member-photo">
                         <h3>Suave</h3>
                         <p>Suave Shrestha</p>
+                        <!-- h -->
                         <p class="role">Member</p>
                     </div>
                 </div>
