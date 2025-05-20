@@ -43,7 +43,8 @@ public class LoginController extends HttpServlet {
             	
             	String encryptedPassword = rs.getString("user_password");
             	String decryptedPassword = com.laptopcoursework.util.PasswordUtil.decrypt(encryptedPassword, username);
-                
+            	//System.out.print(decryptedPassword);
+            	
             	if (decryptedPassword != null && decryptedPassword.equals(inputPassword)) {
             		
         		UserModel loggedInUser = new UserModel(

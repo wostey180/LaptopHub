@@ -1,19 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Dashboard | LaptopHub</title>
+  <title>View Orders | LaptopHub</title>
+  <link rel="stylesheet" href="<%= request.getContextPath() %>/css/orders.css" />
   <link rel="stylesheet" href="<%= request.getContextPath() %>/css/admin.css" />
-  <link rel="stylesheet"  href="<%= request.getContextPath() %>/css/style.css" />
   <link rel="icon" href="${pageContext.request.contextPath}/images/logo/logo1.png" type="image/png">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <jsp:include page="header.jsp" />
+
     <div class="admin-container">
         <!-- Sidebar -->
         <aside class="admin-sidebar">
@@ -41,52 +41,42 @@
         </aside>
 
         <!-- Main Content -->
-        <main class="admin-main">
-            <h2 class="admin-section-title">Dashboard</h2>
-            
-            <!-- Stats Cards -->
-            <div class="admin-stats">
-                <div class="admin-stat-card">
-                    <div class="admin-stat-label">Total Users</div>
-                    <div class="admin-stat-value">${users.size()}</div>
-                </div>
-                <div class="admin-stat-card">
-                    <div class="admin-stat-label">Total Orders</div>
-                    <div class="admin-stat-value">13</div>
-                </div>
-                <div class="admin-stat-card">
-                    <div class="admin-stat-label">Total Products</div>
-                    <div class="admin-stat-value">6</div>
-                </div>
-            </div>
+        <main class="orders-main">
+            <h2 class="orders-section-title">Orders</h2>
 
-            <!-- Users Table -->
-            <div class="admin-table-container">
-                <h3>Users</h3>
-                <table class="admin-table">
+            <div class="orders-table-container">
+                <table class="orders-table">
                     <thead>
                         <tr>
+                            <th>Order ID</th>
+                            <th>Order Date</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
                             <th>Username</th>
-                            <th>Email</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="user" items="${users}">
+                        <c:forEach var="order" items="${orders}">
                             <tr>
-                                <td>${user.username}</td>
-                                <td>${user.user_email}</td>
+                                <td>${order.order_id}</td>
+                                <td>${order.order_date}</td>
+                                <td>${order.total_amount}</td>
+                                <td class="orders-status ${order.status}">${order.status}</td>
+                                <td>${order.user.username}</td>
+                                <td>
+                                    <!-- <button class="action-btn view-profile-btn" onclick="window.location.href='${pageContext.request.contextPath}/profile?user_id=${order.user.user_id}'">View Profile</button> -->
+                                    
+                                    <a href="${pageContext.request.contextPath}/admin/user-profile?user_id=${order.user.user_id}" 
+                                   class="action-btn view-profile-btn">View Profile</a>
+                                   <button class="action-btn view-order-btn" onclick="window.location.href='${pageContext.request.contextPath}/profile?order_id=${order.order_id}'">Order Details</button>
+                                </td>
                             </tr>
                         </c:forEach>
-                        <c:if test="${empty users}">
-                            <tr>
-                                <td colspan="2">No users found.</td>
-                            </tr>
-                        </c:if>
                     </tbody>
                 </table>
             </div>
         </main>
     </div>
-    <jsp:include page="footer.jsp" />
 </body>
 </html>

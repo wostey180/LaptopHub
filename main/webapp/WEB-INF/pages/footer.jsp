@@ -8,7 +8,7 @@
                     <ul class="footer-links">
                         <li><a href="${pageContext.request.contextPath}/home">Home</a></li>
                         <li><a href="${pageContext.request.contextPath}/products">Products</a></li>
-                        <li><a href="${pageContext.request.contextPath}/aboutl">About Us</a></li>
+                        <li><a href="${pageContext.request.contextPath}/about">About Us</a></li>
                         <li><a href="${pageContext.request.contextPath}/contact">Contact</a></li>
                     </ul>
                 </div>
@@ -22,7 +22,7 @@
                         <a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                     <br>
-                    <img src="images/logo/logo1.png" alt="LaptopHub Logo" height = "300" width = "200">
+                    <img src="${pageContext.request.contextPath}/images/logo/logo1.png" alt="LaptopHub Logo" height = "300" width = "200">
                 </div>
                 
                 <div class="footer-section">

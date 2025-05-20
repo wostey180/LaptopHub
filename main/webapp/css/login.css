@@ -41,7 +41,7 @@
 
 .login-input-group label {
   display: block;
-  color: var(--color-accent);
+  color: var(--color-dark);
   margin-bottom: 0.5rem;
   font-size: 0.95rem;
   font-weight: 500;
@@ -82,7 +82,7 @@
 }
 
 .login-links a:hover {
-  color: var(--color-accent);
+  color: var(--color-dark);
   text-decoration: underline;
 }
 
@@ -110,7 +110,7 @@
 }
 
 .login-signup a {
-  color: var(--color-accent);
+  color: var(--color-dark);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;

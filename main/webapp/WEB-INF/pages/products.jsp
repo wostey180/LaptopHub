@@ -42,7 +42,15 @@
 
     <main class="products-page">
       <section class="container">
-        <h2 class="section-title">All Laptops</h2>
+        <h2><p>&nbsp;<p></h2>
+        <% if (session.getAttribute("userRole") != null && session.getAttribute("userRole").equals("admin")) { %>
+        <h2 class="admin-title">
+  			    <a href="${pageContext.request.contextPath}/admin/add-product" class="admin-button">Add Products</a>
+			    <a href="${pageContext.request.contextPath}/admin/manage-product" class="admin-button">Manage Products</a>
+	    	
+    	 </h2>
+    	 <% } %>
+        
 
         <div class="products-grid">
           <c:forEach var="product" items="${products}">

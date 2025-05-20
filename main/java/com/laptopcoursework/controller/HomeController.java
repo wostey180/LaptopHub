@@ -66,6 +66,10 @@ public class HomeController extends HttpServlet {
             // Forward to products.jsp if the path is "/products"
             request.getRequestDispatcher("/WEB-INF/pages/manage-product.jsp").forward(request, response);
             }
+        //else if (path.equals("/admin/orders")) {
+            // Forward to products.jsp if the path is "/products"
+           // request.getRequestDispatcher("/WEB-INF/pages/orders.jsp").forward(request, response);
+           // }
         else if (path.equals("/cart")) {
             // Forward to products.jsp if the path is "/products"
             request.getRequestDispatcher("/WEB-INF/pages/cart.jsp").forward(request, response);
