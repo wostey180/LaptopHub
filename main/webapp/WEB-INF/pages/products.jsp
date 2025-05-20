@@ -50,7 +50,7 @@
               <div class="product-image">
                 <img src="${pageContext.request.contextPath}/${product.image_path}" 
                      alt="${product.product_name}"
-                     onerror="this.onerror=null;this.src='${pageContext.request.contextPath}/images/default-product.png'">
+                     onerror="this.onerror=null;this.src='${pageContext.request.contextPath}/images/product.png'">
               </div>
               <div class="product-info">
                 <div class="product-category">${product.brand}</div>

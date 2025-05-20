@@ -25,14 +25,20 @@
 					<% } %>
 
                     
-                </ul>
+                </ul>	
             </nav>
             <div class="header-icons">
-            	<% if (session.getAttribute("username") != null) { %>
+                <form action="${pageContext.request.contextPath}/SearchBarController" method="get" class="search-bar">
+                    <input type="text" name="search" placeholder="Search..." class="search-input">
+                    <button type="submit">
+                        <img src="${pageContext.request.contextPath}/images/icons/search.png" style="width: 20px; height: 20px;" alt="Search">
+                    </button>
+                </form>
+             	<% if (session.getAttribute("username") != null) { %>
                 <a href="${pageContext.request.contextPath}/profile" class="header-icon"><i class="fas fa-user"></i></a>
                 	<% if (session.getAttribute("userRole") != null && !session.getAttribute("userRole").equals("admin")) { %>
                 	<a href="${pageContext.request.contextPath}/cart" class="header-icon"><i class="fas fa-shopping-cart"></i></a>
-                	<% } %>
+                	<% } %>               
                 <% } else { %>
                 <nav id="nav-menu">
                 <ul>

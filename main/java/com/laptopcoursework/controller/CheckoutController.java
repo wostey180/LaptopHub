@@ -1,9 +1,10 @@
 package com.laptopcoursework.controller;
 
 import com.laptopcoursework.config.DbConfig;
+
 import com.laptopcoursework.model.CartItemModel;
 //import com.laptopcoursework.model.OrderModel;
-
+import com.laptopcoursework.service.DeleteProductService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
@@ -70,6 +71,9 @@ public class CheckoutController extends HttpServlet {
                     updateStmt.setDouble(1, totalAmount);
                     updateStmt.setInt(2, orderId);
                     updateStmt.executeUpdate();
+                    
+                    DeleteProductService cartSvc = new DeleteProductService();
+                    cartSvc.clearCart(userId);
                 }
             }
 

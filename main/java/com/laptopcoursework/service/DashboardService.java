@@ -2,7 +2,6 @@ package com.laptopcoursework.service;
 
 import com.laptopcoursework.config.DbConfig;
 import com.laptopcoursework.model.UserModel;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

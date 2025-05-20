@@ -28,9 +28,19 @@
           <!-- Loop through the cartItems list -->
           <c:forEach var="item" items="${cartItems}">
             <div class="cart-item">
+            
+            <div class="remove-item">
+              <form action="${pageContext.request.contextPath}/RemoveFromCartController" method="POST">
+                <input type="hidden" name="product_id" value="${item.productId}">
+                <button type="submit" class="remove-button">
+      			<img src="${pageContext.request.contextPath}/images/icons/cancel.png" alt="Remove" />
+   				</button>
+              </form>
+            </div>
+            
               <div class="item-image">
                 <img src="${pageContext.request.contextPath}/${item.imagePath}" alt="${item.name}" 
-                     onerror="this.onerror=null;this.src='${pageContext.request.contextPath}/images/default-product.png'">
+                     onerror="this.onerror=null;this.src='${pageContext.request.contextPath}/images/default-cancel.png'">
               </div>
               <div class="item-content">
                 <div class="item-details">
