@@ -60,7 +60,7 @@ public class AddProductController extends HttpServlet {
             
             if (isAdded) {
                 request.getSession().setAttribute("success", "Product added successfully");
-                response.sendRedirect(request.getContextPath() + "/admin");
+                response.sendRedirect(request.getContextPath() + "/admin/dashboard");
             } else {
                 request.getSession().setAttribute("error", "Failed to add product");
                 response.sendRedirect(request.getContextPath() + "/add-product");

@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <title>Manage Products - Laptop Hub</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/manage-product.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <link rel="icon" href="${pageContext.request.contextPath}/images/logo/logo1.png" type="image/png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -15,7 +16,31 @@
     <jsp:include page="header.jsp" />
 
     <main class="manage-main">
+    <aside class="admin-sidebar">
+	            <div class="admin-brand">LaptopHub</div>
+	            <nav>
+	                <ul class="admin-nav">
+	                    <li><a href="${pageContext.request.contextPath}/admin/orders"><i class="fas fa-tachometer-alt"></i> View Orders</a></li>
+	                    <li><a href="${pageContext.request.contextPath}/admin/manage-product"><i class="fas fa-box"></i> Manage Product</a></li>
+	                </ul>
+	            </nav>
+	            
+	            <nav>
+	                <ul class="admin-nav">
+	                    <li><a href="${pageContext.request.contextPath}/admin/add-product"><i class="fas fa-plus"></i>Add Product</a></li>
+	                    <li><a href="${pageContext.request.contextPath}/admin/dashboard"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+	                </ul>
+	            </nav>
+	            
+	            <nav>
+	                <ul class="admin-nav">
+	                    <li><a href="${pageContext.request.contextPath}/logout"><i class="fas fa-sign-in-alt"></i> Logout</a></li>
+	                    <li><a href="${pageContext.request.contextPath}/profile"><i class="fas fa-user"></i> Profile</a></li>
+	                </ul>
+	            </nav>
+        	</aside>
         <div class="manage-container">
+        	
             <div class="manage-header">
                 <h2>Manage Products</h2>
                 <a href="${pageContext.request.contextPath}/add-product" class="action-btn edit-btn">+ Add New Product</a>

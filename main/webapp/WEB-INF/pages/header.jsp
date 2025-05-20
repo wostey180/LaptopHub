@@ -10,7 +10,7 @@
 <header>
         <div class="container header-container">
             <!-- <div class="logo">Laptop<span>Hub</span></div> -->
-            <a href="index.html" class="logo">
+            <a href="${pageContext.request.contextPath}/home" class="logo">
             <img src="${pageContext.request.contextPath}/images/logo/logo.png" alt="Laptop Hub">
         	</a>
             <nav id="nav-menu">

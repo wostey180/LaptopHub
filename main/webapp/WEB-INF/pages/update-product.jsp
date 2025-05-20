@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LaptopHub - Update Product</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/update-product.css" />
+    <link rel="stylesheet"  href="<%= request.getContextPath() %>/css/admin.css" />
     <link rel="stylesheet"  href="<%= request.getContextPath() %>/css/style.css" />
     <link rel="icon" href="${pageContext.request.contextPath}/images/logo/logo1.png" type="image/png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -30,6 +31,29 @@
     <jsp:include page="header.jsp" />
 
     <main class="update-product-main">
+    	<aside class="admin-sidebar">
+		            <div class="admin-brand">LaptopHub</div>
+		            <nav>
+		                <ul class="admin-nav">
+		                    <li><a href="${pageContext.request.contextPath}/admin/orders"><i class="fas fa-tachometer-alt"></i> View Orders</a></li>
+		                    <li><a href="${pageContext.request.contextPath}/admin/manage-product"><i class="fas fa-box"></i> Manage Product</a></li>
+		                </ul>
+		            </nav>
+		            
+		            <nav>
+		                <ul class="admin-nav">
+		                    <li><a href="${pageContext.request.contextPath}/admin/add-product"><i class="fas fa-plus"></i>Add Product</a></li>
+		                    <li><a href="${pageContext.request.contextPath}/admin/dashboard"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+		                </ul>
+		            </nav>
+		            
+		            <nav>
+		                <ul class="admin-nav">
+		                    <li><a href="${pageContext.request.contextPath}/logout"><i class="fas fa-sign-in-alt"></i> Logout</a></li>
+		                    <li><a href="${pageContext.request.contextPath}/profile"><i class="fas fa-user"></i> Profile</a></li>
+		                </ul>
+		            </nav>
+       	</aside>
         <div class="update-product-container">
             <h2>Update Product</h2>
             <% if (session.getAttribute("error") != null) { %>

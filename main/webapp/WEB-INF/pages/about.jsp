@@ -28,8 +28,8 @@
             <section class="team-grid">
                 <div class="team-card">
                     <div class="team-member">
-                        <img src="images/avatars/ayush.png" alt="Ayush Wosti" class="member-photo">
-                        <h3>Ayush Wosti</h3>
+                        <img src="${pageContext.request.contextPath}/images/avatars/ayush.png" alt="Ayush Wosti" class="member-photo">
+                        <h3>Ayush</h3>
                         <p>Ayush Wosti</p>
                         <p class="role">Leader</p>
                     </div>
@@ -61,7 +61,8 @@
                 <div class="team-card">
                     <div class="team-member">
                         <img src="images/avatars/aasra.png" alt="Aasra Dangol" class="member-photo">
-                        <h3>Aasra Dangol (Maharjan)</h3>
+                        <h3>Aasra</h3>
+                        <p>Aasra Dangol (Maharjan)</p>
                         <p class="role">Member</p>
                     </div>
                 </div>

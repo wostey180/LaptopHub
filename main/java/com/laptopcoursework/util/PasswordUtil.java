@@ -104,7 +104,7 @@ public class PasswordUtil {
             cipher.init(Cipher.DECRYPT_MODE, aesKeyFromPassword, new GCMParameterSpec(TAG_LENGTH_BIT, iv));
 
             byte[] plainText = cipher.doFinal(cipherText);
-
+            
             return new String(plainText, UTF_8);
         } catch (Exception ex) {
             return null;

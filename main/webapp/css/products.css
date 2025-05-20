@@ -63,7 +63,7 @@
   .product-card {
     background-color: var(--color-bg-card);
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
     position: relative;
@@ -71,11 +71,11 @@
   
   .product-card:hover {
     transform: scale(1.02);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   }
   
   .product-image {
-    background-color: var(--color-muted);
+    background-color: var(--color-light);
     height: 200px;
     display: flex;
     justify-content: center;
@@ -154,4 +154,27 @@
 .product-tag.sale {
     background-color: #e74c3c;
 }
+
+.admin-title {
+    text-align: right;
+    margin-bottom: 10px;
+    font-size: 32px;
+    color: #2c3e50;
+}
+
+.admin-button {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: red;
+    color: var(--color-white);
+    border-radius: 5px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .admin-button:hover {
+    background-color: #e74c3c;
+  }
+
   
