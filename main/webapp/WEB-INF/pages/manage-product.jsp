@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Manage Products - Laptop Hub</title>
+    <title>Manage Products | LaptopHub</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/manage-product.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">

@@ -13,6 +13,8 @@ import com.laptopcoursework.model.UserModel;
 import com.laptopcoursework.service.RegisterService;
 import com.laptopcoursework.util.PasswordUtil;
 import com.laptopcoursework.util.RedirectionUtil;
+import com.laptopcoursework.util.ValidationUtil;
+
 
 @WebServlet(asyncSupported = true, urlPatterns = { "/register" })
 @MultipartConfig(
@@ -42,6 +44,11 @@ public class RegisterController extends HttpServlet {
             throws ServletException, IOException {
         try {
             String username = request.getParameter("username");
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+            String address = request.getParameter("address");
+            String phone = request.getParameter("phone");
+            Part userImagePart = request.getPart("userImage");
             if (username == null || username.trim().isEmpty()) {
                 setErrorAndRedirect(request, response, "Username is required");
                 return;
@@ -51,9 +58,40 @@ public class RegisterController extends HttpServlet {
                 setErrorAndRedirect(request, response, "Username is already taken");
                 return;
             }
-            String password = request.getParameter("password");
+            
             if (password == null || password.trim().isEmpty()) {
                 setErrorAndRedirect(request, response, "password is required");
+                return;
+            }
+            
+         // Validations
+            if (!ValidationUtil.isValidUsername(username)) {
+                setErrorAndRedirect(request, response, "Username must be more than 4 characters, not start with a number, contain no spaces.");
+                return;
+            }
+
+            if (!ValidationUtil.isValidEmail(email)) {
+                setErrorAndRedirect(request, response, "Invalid email format.");
+                return;
+            }
+
+            if (!ValidationUtil.isValidPassword(password)) {
+                setErrorAndRedirect(request, response, "Password must be more than 4 characters.");
+                return;
+            }
+
+            if (address == null || address.trim().isEmpty()) {
+                setErrorAndRedirect(request, response, "Address cannot be empty.");
+                return;
+            }
+
+            if (!ValidationUtil.isValidPhone(phone)) {
+                setErrorAndRedirect(request, response, "Phone must be exactly 10 digits and contain only numbers.");
+                return;
+            }
+
+            if (!ValidationUtil.isValidImage(userImagePart)) {
+                setErrorAndRedirect(request, response, "Invalid image file. Only png, jpg, jpeg, gif under 2MB are allowed.");
                 return;
             }
             //Password encryption
@@ -128,6 +166,11 @@ public class RegisterController extends HttpServlet {
                                    HttpServletResponse response, 
                                    String message) throws IOException {
         request.getSession().setAttribute("error", message);
+        
+        
         response.sendRedirect(request.getContextPath() + RedirectionUtil.registerUrl);
     }
+    
+    
+
 }

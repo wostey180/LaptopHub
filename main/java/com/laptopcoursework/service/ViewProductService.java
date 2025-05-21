@@ -3,6 +3,7 @@ package com.laptopcoursework.service;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,5 +67,32 @@ public class ViewProductService {
 	    return null;
 	}
 
+	public List<ProductModel> getInStockProducts() {
+	    List<ProductModel> products = new ArrayList<>();
+	    String query = "SELECT * FROM product WHERE stock_quantity >= 1";
+	    try (Connection conn = DbConfig.getDbConnection();
+	         PreparedStatement stmt = conn.prepareStatement(query);
+	         ResultSet rs = stmt.executeQuery()) {
+
+	        while (rs.next()) {
+	            ProductModel product = new ProductModel(
+	                rs.getInt("product_id"),
+	                rs.getString("product_name"),
+	                rs.getString("brand"),
+	                rs.getString("model"),
+	                rs.getString("specs"),
+	                rs.getDouble("price"),
+	                rs.getInt("stock_quantity"),
+	                rs.getString("description"),
+	                rs.getString("image_path")
+	            );
+	            products.add(product);
+	        }
+
+	    } catch (SQLException | ClassNotFoundException e) {
+	        e.printStackTrace();
+	    }
+	    return products;
+	}
 
 }

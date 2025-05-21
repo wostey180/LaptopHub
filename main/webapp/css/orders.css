@@ -120,13 +120,18 @@
   text-transform: uppercase;
 }
 
-.orders-status.pending {
+.orders-status-Pending {
   background-color: #ff9800;
   color: #fff;
 }
 
-.orders-status.completed {
+.orders-status-Completed {
   background-color: #4caf50;
+  color: #fff;
+}
+
+.orders-status-Cancelled {
+  background-color:  rgb(255, 0, 0);
   color: #fff;
 }
 
@@ -168,4 +173,19 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+/* Add this in order-details.css */
+.order-user-info {
+    margin-bottom: 20px;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.order-user-info h3 {
+    margin: 0;
+    font-size: 1.1rem;
 }

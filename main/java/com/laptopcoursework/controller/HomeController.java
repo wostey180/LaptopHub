@@ -6,6 +6,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
+
+import com.laptopcoursework.model.ProductModel;
+import com.laptopcoursework.service.ProductService;
 
 /**
  * Servlet implementation class HomeController
@@ -22,6 +26,8 @@ public class HomeController extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    
+   
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -97,10 +103,16 @@ public class HomeController extends HttpServlet {
         
         else if (path.equals("/home")) {
             // Forward to products.jsp if the path is "/products"
+        	ProductService productService = new ProductService();
+        	List<ProductModel> featuredProducts = productService.getInStockProducts();
+        	request.setAttribute("featuredProducts", featuredProducts);
             request.getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(request, response);
             }
         else if (path.equals("/")) {
             // Forward to products.jsp if the path is "/products"
+        	ProductService productService = new ProductService();
+        	List<ProductModel> featuredProducts = productService.getInStockProducts();
+        	request.setAttribute("featuredProducts", featuredProducts);
             request.getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(request, response);
             }
         else {

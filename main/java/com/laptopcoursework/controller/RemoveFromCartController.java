@@ -14,7 +14,7 @@ import com.laptopcoursework.service.ProductService;
 /**
  * Servlet implementation class RemoveFromCartController
  */
-@WebServlet("/RemoveFromCartController")
+@WebServlet("/remove-from-cart")
 public class RemoveFromCartController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -40,6 +40,8 @@ public class RemoveFromCartController extends HttpServlet {
         // remove from DB
         DeleteProductService svc = new DeleteProductService();
         svc.removeProductFromCart(userId, productId);
+        //System.out.println("Removing product " + productId + " for user " + userId);
+
 
         // redirect back to cart
         response.sendRedirect(request.getContextPath() + "/cart");

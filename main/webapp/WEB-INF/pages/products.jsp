@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LaptopHub - Products</title>
+  <title>Products | LaptopHub</title>
   <link rel="stylesheet" href="<%= request.getContextPath() %>/css/products.css" />
   <link rel="stylesheet"  href="<%= request.getContextPath() %>/css/style.css" />
   <link rel="icon" href="${pageContext.request.contextPath}/images/logo/logo1.png" type="image/png">
@@ -59,13 +59,24 @@
                 <img src="${pageContext.request.contextPath}/${product.image_path}" 
                      alt="${product.product_name}"
                      onerror="this.onerror=null;this.src='${pageContext.request.contextPath}/images/product.png'">
+                <c:if test="${product.stock_quantity == 0}">
+				  <span class="badge sale-badge">Out of Stock</span>
+				</c:if>
               </div>
               <div class="product-info">
                 <div class="product-category">${product.brand}</div>
                 <h3 class="product-title">${product.product_name}</h3>
-                <div class="product-price">$${product.price}</div>
-                <a href="${pageContext.request.contextPath}/product-details?id=${product.product_id}" 
-                   class="product-button">View Details</a>
+                <div class="product-price">Rs.${product.price}</div>
+                <c:choose>
+				  <c:when test="${product.stock_quantity > 0}">
+				    <a href="${pageContext.request.contextPath}/product-details?id=${product.product_id}" 
+				       class="product-button">View Details</a>
+				  </c:when>
+				  <c:otherwise>
+				    <span class="product-button out-of-stock">Out of Stock</span>
+				  </c:otherwise>
+				</c:choose>
+
               </div>
             </div>
           </c:forEach>

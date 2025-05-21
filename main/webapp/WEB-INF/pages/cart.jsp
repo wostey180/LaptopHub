@@ -30,7 +30,7 @@
             <div class="cart-item">
             
             <div class="remove-item">
-              <form action="${pageContext.request.contextPath}/RemoveFromCartController" method="POST">
+              <form action="${pageContext.request.contextPath}/remove-from-cart" method="POST">
                 <input type="hidden" name="product_id" value="${item.productId}">
                 <button type="submit" class="remove-button">
       			<img src="${pageContext.request.contextPath}/images/icons/cancel.png" alt="Remove" />
@@ -83,7 +83,7 @@
             <form action="${pageContext.request.contextPath}/checkout" method="POST">
 			   <button class="btn btn-primary" type="submit">Proceed to Checkout</button>
 			</form>
-            <a href="${pageContext.request.contextPath}/home"><button class="btn btn-secondary">Continue Shopping</button></a>
+            <a href="${pageContext.request.contextPath}/products"><button class="btn btn-secondary">Continue Shopping</button></a>
           </div>
         </div>
       </c:if>

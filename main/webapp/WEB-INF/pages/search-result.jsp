@@ -12,7 +12,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Search Results</title>
+
+<title>Search Results | ${query}</title>
+<link rel="icon" href="${pageContext.request.contextPath}/images/logo/logo1.png" type="image/png">
 <!--
     /**
      * Internal CSS styles for the search result layout.
@@ -135,9 +137,8 @@
                     <p><strong>Rs. ${product.price}</strong></p>
                     
                       <!-- View details button -->
-                    <a href="${pageContext.request.contextPath}/product-details?id=${product.product_id}" class="product-button">
-                        View Details
-                    </a>
+                    <a href="${pageContext.request.contextPath}/product-details?id=${product.product_id}" 
+				       class="product-button">View Details</a>
                 </div>
             </div>
         </c:forEach>

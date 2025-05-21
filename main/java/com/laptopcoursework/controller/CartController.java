@@ -3,6 +3,7 @@ package com.laptopcoursework.controller;
 import com.laptopcoursework.config.DbConfig;
 import com.laptopcoursework.model.CartItemModel;
 import com.laptopcoursework.model.UserModel;
+import com.laptopcoursework.service.DeleteProductService;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -32,6 +33,13 @@ public class CartController extends HttpServlet {
         if (user == null) {
             response.sendRedirect(request.getContextPath() + "/login");
             return;
+        }
+        
+        //removing out of stock from cart
+        DeleteProductService deleteService = new DeleteProductService();
+        boolean removed = deleteService.removeOutOfStockItemsFromCart(user.getUser_id());
+        if (removed) {
+            request.setAttribute("outOfStockRemoved", true);
         }
 
         List<CartItemModel> cartItems = new ArrayList<>();

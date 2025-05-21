@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+/* Profile Page Styles */
+
+
+.profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            border: 3px solid #ddd;
+            
+        }
+        
+.profile-info {
+    margin: 1.5rem 0;
+    line-height: 1.6;
+}
+
+.profile-info p {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-medium);
+}
+
+.user-profile-main{
+	display: grid;
+  grid-template-columns: 250px 1fr;
+  
+}
+
+.user-profile-main-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-medium);
+    padding: 2rem;
+}
+
+.user-profile-container {
+    max-width: 600px;
+    width: 100%;
+    
+    padding: 2rem;
+    background: var(--color-light);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.admin-sidebar {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  padding: 2rem 1rem;
+  
+}
+
+.admin-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--color-primary);
+}
+
+.admin-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-nav li {
+  margin-bottom: 1rem;
+}
+
+.admin-nav a {
+  color: var(--color-white);
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.admin-nav a:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.admin-nav i {
+  margin-right: 10px;
+  width: 20px;
+  text-align: center;
+}

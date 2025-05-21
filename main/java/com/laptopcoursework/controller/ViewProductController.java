@@ -17,13 +17,18 @@ public class ViewProductController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("i am here!");
+		//System.out.println("i am here!");
 		ViewProductService viewProducts = new ViewProductService();
 		
 		List<?> allProducts = viewProducts.getAllProducts();
-		System.out.println(allProducts);
+		//System.out.println(allProducts);
 		
 		request.setAttribute("products", allProducts);
+		
+		//List<?> inStockProducts = viewProducts.getInStockProducts();
+		
+		//request.setAttribute("products", inStockProducts);
+		
 		request.getRequestDispatcher("/WEB-INF/pages/products.jsp").forward(request, response);
 	}
 

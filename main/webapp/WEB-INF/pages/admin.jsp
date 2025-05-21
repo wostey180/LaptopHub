@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Admin Dashboard | LaptopHub</title>
   <link rel="stylesheet" href="<%= request.getContextPath() %>/css/admin.css" />
+  <link rel="stylesheet"  href="<%= request.getContextPath() %>/css/orders.css" />
   <link rel="stylesheet"  href="<%= request.getContextPath() %>/css/style.css" />
   <link rel="icon" href="${pageContext.request.contextPath}/images/logo/logo1.png" type="image/png">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -52,11 +53,11 @@
                 </div>
                 <div class="admin-stat-card">
                     <div class="admin-stat-label">Total Orders</div>
-                    <div class="admin-stat-value">13</div>
+                    <div class="admin-stat-value">${totalOrders}</div>
                 </div>
                 <div class="admin-stat-card">
                     <div class="admin-stat-label">Total Products</div>
-                    <div class="admin-stat-value">6</div>
+                    <div class="admin-stat-value">${totalProducts}</div>
                 </div>
             </div>
 
@@ -68,13 +69,18 @@
                         <tr>
                             <th>Username</th>
                             <th>Email</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach var="user" items="${users}">
                             <tr>
                                 <td>${user.username}</td>
-                                <td>${user.user_email}</td>
+                                <td>${user.user_email}</td>	
+                                <td>
+                                    <a href="${pageContext.request.contextPath}/admin/user-profile?user_id=${user.user_id}" 
+                                   class="action-btn view-profile-btn">View Profile</a>
+                                 </td>
                             </tr>
                         </c:forEach>
                         <c:if test="${empty users}">

@@ -12,7 +12,11 @@ import java.io.IOException;
 @WebServlet("/admin/delete-product")
 public class DeleteProductController extends HttpServlet {
 
-    private final DeleteProductService deleteService = new DeleteProductService();
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final DeleteProductService deleteService = new DeleteProductService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
