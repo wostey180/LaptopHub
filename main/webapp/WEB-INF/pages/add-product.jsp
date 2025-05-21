@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LaptopHub - Add Product</title>
+    <title>Add Product | LaptopHub</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/add-product.css" />
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/admin.css" />
     <link rel="stylesheet"  href="<%= request.getContextPath() %>/css/style.css" />

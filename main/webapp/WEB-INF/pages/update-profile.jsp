@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LaptopHub - Update Profile</title>
+    <title>Update Profile | LaptopHub</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/update-profile.css" />
     <link rel="stylesheet"  href="<%= request.getContextPath() %>/css/style.css" />
   	<link rel="icon" href="${pageContext.request.contextPath}/images/logo/logo1.png" type="image/png">

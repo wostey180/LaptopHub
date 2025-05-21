@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LaptopHub - Register</title>
+    <title>Register | LaptopHub</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/register.css" />
     <link rel="stylesheet"  href="<%= request.getContextPath() %>/css/style.css" />
   	<link rel="icon" href="${pageContext.request.contextPath}/images/logo/logo1.png" type="image/png">
@@ -18,7 +18,7 @@
         <div class="register-container">
             <h2>Registration</h2>
             <% if (session.getAttribute("error") != null) { %>
-                <div class="error-message">
+                <div class="error-message" style="color: red; margin-bottom: 15px;">
                     <%= session.getAttribute("error") %>
                 </div>
                 <% session.removeAttribute("error"); %>
@@ -26,21 +26,21 @@
             <form action = "${pageContext.request.contextPath}/register" method = "post" enctype="multipart/form-data">
                 <div class="register-input-group">
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required />
+                    <input type="text" id="username" name="username" >
                 </div>
                 <div class="register-input-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required />
+                    <input type="email" id="email" name="email" >
                 </div>
                 
                  <div class="register-input-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required />
+                    <input type="password" id="password" name="password" >
                 </div>
                 
                 <div class="register-input-group">
                     <label for="address">Address</label>
-                    <input type="text" id="address" name="address" required />
+                    <input type="text" id="address" name="address" >
                 </div>
                 <!-- <div class="register-input-group">
                     <label for="gender">Gender</label>
@@ -54,7 +54,7 @@
                 
                 <div class="register-input-group">
                     <label for="phone">Phone</label>
-                    <input type="text" id="phone" name="phone" required />
+                    <input type="text" id="phone" name="phone" >
                 </div>
                 
                 <div class="register-input-group">

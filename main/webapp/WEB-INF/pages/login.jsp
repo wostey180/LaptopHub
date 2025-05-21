@@ -30,11 +30,11 @@
             <form action="login" method="post">
                 <div class="login-input-group">
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required>
+                    <input type="text" id="username" name="username" >
                 </div>
                 <div class="login-input-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="password" name="password" >
                     <div class="login-links">
                     <a href="#">Forgot password?</a>
                 </div>

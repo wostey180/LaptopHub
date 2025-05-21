@@ -62,14 +62,25 @@
                                 <td>${order.order_id}</td>
                                 <td>${order.order_date}</td>
                                 <td>${order.total_amount}</td>
-                                <td class="orders-status ${order.status}">${order.status}</td>
+                                <td class="orders-status-${order.status}">${order.status}</td>
                                 <td>${order.user.username}</td>
                                 <td>
                                     <!-- <button class="action-btn view-profile-btn" onclick="window.location.href='${pageContext.request.contextPath}/profile?user_id=${order.user.user_id}'">View Profile</button> -->
                                     
                                     <a href="${pageContext.request.contextPath}/admin/user-profile?user_id=${order.user.user_id}" 
                                    class="action-btn view-profile-btn">View Profile</a>
-                                   <button class="action-btn view-order-btn" onclick="window.location.href='${pageContext.request.contextPath}/profile?order_id=${order.order_id}'">Order Details</button>
+                                   <a href="${pageContext.request.contextPath}/admin/order-details?order_id=${order.order_id}" 
+                                   class="action-btn view-order-btn">Order Details</a>
+                                   
+                                   <form action="${pageContext.request.contextPath}/admin/change-order-status" method="post" style="display:inline-block; margin-left:10px;">
+							        <input type="hidden" name="order_id" value="${order.order_id}" />
+								        <select name="status" onchange="this.form.submit()" style="padding: 5px; border-radius: 4px;">
+								            <option value="Pending" ${order.status == 'Pending' ? 'selected' : ''}>Pending</option>
+								            <option value="Completed" ${order.status == 'Completed' ? 'selected' : ''}>Completed</option>
+								            <option value="Cancelled" ${order.status == 'Cancelled' ? 'selected' : ''}>Cancelled</option>
+								        </select>
+   									 </form>
+                                   
                                 </td>
                             </tr>
                         </c:forEach>
@@ -78,5 +89,6 @@
             </div>
         </main>
     </div>
+    <jsp:include page="footer.jsp" />
 </body>
 </html>

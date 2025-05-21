@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>404 Page Not Found - Laptop Hub</title>
+  <title>404 Page Not Found | LaptopHub</title>
   <!-- <link rel="stylesheet" href="style.css" /> -->
   <link rel="stylesheet"  href="<%= request.getContextPath() %>/css/error.css" />
   <link rel="stylesheet"  href="<%= request.getContextPath() %>/css/style.css" />

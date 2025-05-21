@@ -66,7 +66,7 @@ public class UpdateProductController extends HttpServlet {
             boolean isUpdated = updateProductService.updateProduct(updatedProduct);
 
             if (isUpdated) {
-                response.sendRedirect(request.getContextPath() + "/admin");
+                response.sendRedirect(request.getContextPath() + "/admin/dashboard");
             } else {
                 request.getSession().setAttribute("error", "Product update failed.");
                 response.sendRedirect(request.getContextPath() + "/admin/update-product");
@@ -81,11 +81,14 @@ public class UpdateProductController extends HttpServlet {
     private String handleImageUpload(HttpServletRequest request, int productId)
             throws IOException, ServletException {
         Part filePart = request.getPart("product_image");
+        
+        String existingImage = request.getParameter("existing_image");
+        
         if (filePart == null || filePart.getSize() == 0) {
-            return "images/productimgs/default.png";
+            return existingImage;
         }
 
-        String uploadPath = request.getServletContext().getRealPath("/images/productimgs");
+        String uploadPath = request.getServletContext().getRealPath("/images/products");
         File uploadDir = new File(uploadPath);
         if (!uploadDir.exists()) {
             uploadDir.mkdirs();
@@ -94,7 +97,7 @@ public class UpdateProductController extends HttpServlet {
         String fileName = "product_" + productId + getFileExtension(filePart.getSubmittedFileName());
         filePart.write(uploadPath + File.separator + fileName);
 
-        return "images/productimgs/" + fileName;
+        return "images/products/" + fileName;
     }
 
     private String getFileExtension(String fileName) {

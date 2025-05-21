@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LaptopHub - Update Product</title>
+    <title>Update Product | LaptopHub</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/update-product.css" />
     <link rel="stylesheet"  href="<%= request.getContextPath() %>/css/admin.css" />
     <link rel="stylesheet"  href="<%= request.getContextPath() %>/css/style.css" />
@@ -123,7 +123,7 @@
                     <!-- Form Actions -->
                     <div class="form-actions">
                         <button type="submit" class="update-product-button">Update Product</button>
-                        <a href="<%= request.getContextPath() %>/admin" class="update-product-cancel">Cancel</a>
+                        <a href="<%= request.getContextPath() %>/admin/dashboard" class="update-product-cancel">Cancel</a>
                     </div>
                 </div>
             </form>

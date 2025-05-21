@@ -1,19 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LaptopHub - Home</title>
-  <link rel="stylesheet" href="<%= request.getContextPath() %>/css/home.css" />
-  <link rel="stylesheet"  href="<%= request.getContextPath() %>/css/style.css" />
-  <!-- <link rel="stylesheet" href="<%= request.getContextPath() %>/css/products.css" /> -->
+  <title>Home | LaptopHub</title>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
   <link rel="icon" href="${pageContext.request.contextPath}/images/logo/logo1.png" type="image/png">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
   <jsp:include page="header.jsp" />
+
   <main>
     <section class="hero">
         <div class="container">
@@ -32,91 +33,26 @@
     <div class="container">
       <h2 class="section-title">Featured Laptops</h2>
       <div class="products-grid">
+        <c:set var="count" value="0" />
+        <c:forEach var="product" items="${featuredProducts}">
+        <c:if test="${count < 3}">
+            <div class="product-card">
+              <div class="product-image">
+                <img src="${pageContext.request.contextPath}/${product.image_path}" alt="${product.product_name}"
+                     onerror="this.onerror=null;this.src='${pageContext.request.contextPath}/images/product.png'">
+                <span class="badge">HOT</span>
+              </div>
+              <div class="product-info">
+                <div class="product-category">${product.brand}</div>
+                <h3 class="product-title">${product.product_name}</h3>
+                <div class="product-price">Rs.${product.price}</div>
+                <a href="${pageContext.request.contextPath}/product-details?id=${product.product_id}" class="product-button">View Details</a>
+              </div>
+            </div>
+       	<c:set var="count" value="${count + 1}" />
+    	</c:if>
+        </c:forEach>
         
-        <!-- Product 1 -->
-        <div class="product-card">
-            <div class="product-image">
-              <img src="${pageContext.request.contextPath}/images/products/laptop1.png" alt="Gaming Laptop">
-              <span class="badge">New</span> <!-- Badge -->
-            </div>
-            <div class="product-info">
-              <div class="product-category">Gaming</div>
-              <h3 class="product-title">Ultra Gaming Pro X15</h3>
-              <div class="product-price">$1,299.99</div>
-              <a href="products_expanded" class="product-button">View Details</a>
-            </div>
-          </div>
-          
-  
-        <!-- Product 2 -->
-        <div class="product-card">
-          <div class="product-image">
-            <img src="${pageContext.request.contextPath}/images/products/laptop1.png" alt="Business Laptop">
-            <span class="badge">New</span> <!-- Badge -->
-          </div>
-          <div class="product-info">
-            <div class="product-category">Business</div>
-            <h3 class="product-title">EliteBook Pro 14"</h3>
-            <div class="product-price">$999.99</div>
-            <a href="products_expanded" class="product-button">View Details</a>
-          </div>
-        </div>
-  
-        <!-- Product 3 -->
-        <div class="product-card">
-          <div class="product-image">
-            <img src="${pageContext.request.contextPath}/images/products/laptop1.png" alt="Ultrabook">
-            <span class="badge">New</span> <!-- Badge -->
-          </div>
-          <div class="product-info">
-            <div class="product-category">Ultrabook</div>
-            <h3 class="product-title">SlimAir S13</h3>
-            <div class="product-price">$1,099.99</div>
-            <a href="products_expanded" class="product-button">View Details</a>
-          </div>
-        </div>
-  
-        <!-- Product 4 -->
-        <div class="product-card">
-          <div class="product-image">
-            <img src="${pageContext.request.contextPath}/images/products/laptop1.png" alt="Student Laptop">
-            <span class="badge">New</span> <!-- Badge -->
-          </div>
-          <div class="product-info">
-            <div class="product-category">Student</div>
-            <h3 class="product-title">EduBook 15.6"</h3>
-            <div class="product-price">$699.99</div>
-            <a href="products_expanded" class="product-button">View Details</a>
-          </div>
-        </div>
-  
-        <!-- Product 5 -->
-        <div class="product-card">
-          <div class="product-image">
-            <img src="${pageContext.request.contextPath}/images/products/laptop1.png" alt="Creator Laptop">
-            <span class="badge">New</span> <!-- Badge -->
-          </div>
-          <div class="product-info">
-            <div class="product-category">Creator</div>
-            <h3 class="product-title">CreatorStudio 17"</h3>
-            <div class="product-price">$1,499.99</div>
-            <a href="products_expanded" class="product-button">View Details</a>
-          </div>
-        </div>
-  
-        <!-- Product 6 -->
-        <div class="product-card">
-          <div class="product-image">
-            <img src="${pageContext.request.contextPath}/images/products/laptop1.png" alt="Convertible Laptop">
-            <span class="badge">New</span> <!-- Badge -->
-          </div>
-          <div class="product-info">
-            <div class="product-category">Convertible</div>
-            <h3 class="product-title">FlexBook 360</h3>
-            <div class="product-price">$849.99</div>
-            <a href="products_expanded" class="product-button">View Details</a>
-          </div>
-        </div>
   
       </div>
     </div>

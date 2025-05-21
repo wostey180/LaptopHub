@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>My Profile - Laptop Hub</title>
+    <title>My Profile | LaptopHub</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/profile.css">
     <link rel="stylesheet"  href="<%= request.getContextPath() %>/css/style.css" />
   	<link rel="icon" href="${pageContext.request.contextPath}/images/logo/logo1.png" type="image/png">

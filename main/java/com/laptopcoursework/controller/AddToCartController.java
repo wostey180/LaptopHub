@@ -49,11 +49,12 @@ public class AddToCartController extends HttpServlet {
         }
 
         String username = user.getUsername();
+        int userId = user.getUser_id();
 
         try (Connection conn = DbConfig.getDbConnection()) {
 
             // Get or create cart ID for the user
-            int cartId = getOrCreateCartId(conn, username);
+            int cartId = getOrCreateCartId(conn, userId, username);
 
             // Check if the product already exists in the cart
             String checkSql = "SELECT quantity FROM cart_product WHERE cart_id = ? AND product_id = ?";
@@ -91,7 +92,7 @@ public class AddToCartController extends HttpServlet {
         }
     }
 
-    private int getOrCreateCartId(Connection conn, String username) throws SQLException {
+    private int getOrCreateCartId(Connection conn, int userId, String username) throws SQLException {
         // Check if cart already exists for the user
         String selectSql = "SELECT cart_id FROM cart WHERE username = ?";
         PreparedStatement selectStmt = conn.prepareStatement(selectSql);
@@ -102,9 +103,10 @@ public class AddToCartController extends HttpServlet {
             return rs.getInt("cart_id");
         } else {
             // Create new cart for user if none exists
-            String insertSql = "INSERT INTO cart (username) VALUES (?)";
+            String insertSql = "INSERT INTO cart (user_id, username) VALUES (?, ?)";
             PreparedStatement insertStmt = conn.prepareStatement(insertSql, PreparedStatement.RETURN_GENERATED_KEYS);
-            insertStmt.setString(1, username);
+            insertStmt.setInt(1, userId);
+            insertStmt.setString(2, username);
             insertStmt.executeUpdate();
 
             ResultSet generatedKeys = insertStmt.getGeneratedKeys();

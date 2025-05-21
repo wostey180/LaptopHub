@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LaptopHub - ${product.product_name}</title>
+  <title>${product.product_name} | LaptopHub</title>
   <link rel="stylesheet" href="<%= request.getContextPath() %>/css/products_expanded.css" />
   <link rel="stylesheet" href="<%= request.getContextPath() %>/css/style.css" />
   <link rel="icon" href="${pageContext.request.contextPath}/images/logo/logo1.png" type="image/png">
@@ -44,11 +44,19 @@
         </div>
 
         <div class="action-buttons">
-          <form action="${pageContext.request.contextPath}/add-to-cart" method="post">
-            <input type="hidden" name="productId" value="${product.product_id}" />
-            <button type="submit" class="btn btn-primary">Add to Cart</button>
-            <!-- <a href="buy"><button type="button" class="btn btn-secondary">Buy Now</button></a> -->
-          </form>
+          <c:choose>
+		    <c:when test="${product.stock_quantity > 0}">
+		      <form action="${pageContext.request.contextPath}/add-to-cart" method="post">
+		        <input type="hidden" name="productId" value="${product.product_id}" />
+		        <button type="submit" class="btn btn-primary">Add to Cart</button>
+		      </form>
+		    </c:when>
+		    <c:otherwise>
+		      <span class="btn btn-disabled" style="background-color: #ccc; color: #666; cursor: not-allowed; padding: 10px 20px; border-radius: 5px; display: inline-block;">
+		        Out of Stock
+		      </span>
+		    </c:otherwise>
+		  </c:choose>
         </div>
       </div>
     </div>

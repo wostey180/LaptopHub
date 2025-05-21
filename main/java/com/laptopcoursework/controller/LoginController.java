@@ -31,6 +31,19 @@ public class LoginController extends HttpServlet {
         String username = request.getParameter("username");
         String inputPassword = request.getParameter("password");
         
+        //validation
+        if (username == null || username.trim().isEmpty() || username.contains(" ")) {
+            request.setAttribute("error", "Username is empty.");
+            request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
+            return;
+        }
+
+        if (inputPassword == null || inputPassword.trim().isEmpty()) {
+            request.setAttribute("error", "Password is empty.");
+            request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
+            return;
+        }
+        
         try (Connection conn = DbConfig.getDbConnection()) {
             String sql = "SELECT * FROM user WHERE username = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);

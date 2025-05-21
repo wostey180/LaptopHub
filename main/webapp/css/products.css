@@ -75,7 +75,7 @@
   }
   
   .product-image {
-    background-color: var(--color-light);
+    background-color: var(--color-white);
     height: 200px;
     display: flex;
     justify-content: center;
@@ -176,5 +176,17 @@
   .admin-button:hover {
     background-color: #e74c3c;
   }
+  
+  .out-of-stock {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  pointer-events: none;
+  text-align: center;
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+}
 
   

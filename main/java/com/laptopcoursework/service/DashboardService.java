@@ -16,7 +16,7 @@ public class DashboardService {
              PreparedStatement statement = connection.prepareStatement(query);
              ResultSet rs = statement.executeQuery()) {
 
-            System.out.println("Executing user fetch query...");
+            //System.out.println("Executing user fetch query...");
             
 
             while (rs.next()) {
@@ -31,7 +31,7 @@ public class DashboardService {
                 users.add(user);
             }
 
-            System.out.println("Fetched " + users.size() + " users.");
+            //System.out.println("Fetched " + users.size() + " users.");
             return users;
 
         } catch (SQLException | ClassNotFoundException e) {
