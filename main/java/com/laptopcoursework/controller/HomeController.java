@@ -41,15 +41,12 @@ public class HomeController extends HttpServlet {
         }
         
         if (path.equals("/products")) {
-            // Forward to products.jsp if the path is "/products"
             request.getRequestDispatcher("/WEB-INF/pages/products.jsp").forward(request, response);
         } 
         else if (path.equals("/products_expanded")) {
-            // Forward to products.jsp if the path is "/products"
             request.getRequestDispatcher("/WEB-INF/pages/products_expanded.jsp").forward(request, response);
             }
         else if (path.equals("/about")) {
-            // Forward to products.jsp if the path is "/products"
             request.getRequestDispatcher("/WEB-INF/pages/about.jsp").forward(request, response);
             }
         else if (path.equals("/admin")) {
@@ -57,35 +54,24 @@ public class HomeController extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/pages/admin.jsp").forward(request, response);
             }
         else if (path.equals("/admin/add-product")) {
-            // Forward to products.jsp if the path is "/products"
             request.getRequestDispatcher("/WEB-INF/pages/add-product.jsp").forward(request, response);
             }
         else if (path.equals("/admin/update-product")) {
-            // Forward to products.jsp if the path is "/products"
             request.getRequestDispatcher("/WEB-INF/pages/update-product.jsp").forward(request, response);
             }
         else if (path.equals("/admin/dashboard")) {
-            // Forward to products.jsp if the path is "/products"
             request.getRequestDispatcher("/WEB-INF/pages/admin.jsp").forward(request, response);
             }
         else if (path.equals("/admin/manage-product")) {
-            // Forward to products.jsp if the path is "/products"
             request.getRequestDispatcher("/WEB-INF/pages/manage-product.jsp").forward(request, response);
             }
-        //else if (path.equals("/admin/orders")) {
-            // Forward to products.jsp if the path is "/products"
-           // request.getRequestDispatcher("/WEB-INF/pages/orders.jsp").forward(request, response);
-           // }
         else if (path.equals("/cart")) {
-            // Forward to products.jsp if the path is "/products"
             request.getRequestDispatcher("/WEB-INF/pages/cart.jsp").forward(request, response);
             }
         else if (path.equals("/contact")) {
-            // Forward to products.jsp if the path is "/products"
             request.getRequestDispatcher("/WEB-INF/pages/contact.jsp").forward(request, response);
             }
         else if (path.equals("/error")) {
-            // Forward to products.jsp if the path is "/products"
             request.getRequestDispatcher("/WEB-INF/pages/error.jsp").forward(request, response);
             }
         else if (path.equals("/profile")) {
@@ -93,11 +79,9 @@ public class HomeController extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/pages/profile.jsp").forward(request, response);
             }
         else if (path.equals("/access-denied")) {
-            // Forward to products.jsp if the path is "/products"
             request.getRequestDispatcher("/WEB-INF/pages/access-denied.jsp").forward(request, response);
             }
         else if (path.equals("/order-success")) {
-            // Forward to products.jsp if the path is "/products"
             request.getRequestDispatcher("/WEB-INF/pages/order-success.jsp").forward(request, response);
             }
         
@@ -109,7 +93,6 @@ public class HomeController extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(request, response);
             }
         else if (path.equals("/")) {
-            // Forward to products.jsp if the path is "/products"
         	ProductService productService = new ProductService();
         	List<ProductModel> featuredProducts = productService.getInStockProducts();
         	request.setAttribute("featuredProducts", featuredProducts);

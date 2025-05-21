@@ -49,6 +49,7 @@
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease-in-out;
+    margin-bottom: 20px;
 }
 
 .product-horizontal-card:hover {

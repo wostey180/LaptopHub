@@ -37,13 +37,14 @@ public class AddProductController extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/pages/add-product.jsp").forward(request, response);
     }
 
+    //post method
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         try {
             // Handle image upload
             String imagePath = handleImageUpload(request);
             
-            // Create product model
+            // Creating product model
             ProductModel product = new ProductModel(
                 request.getParameter("product_name"),
                 request.getParameter("brand"),
@@ -55,7 +56,7 @@ public class AddProductController extends HttpServlet {
                 imagePath
             );
             
-            // Add to database
+            // Adding to database
             boolean isAdded = addProductService.addProduct(product);
             
             if (isAdded) {

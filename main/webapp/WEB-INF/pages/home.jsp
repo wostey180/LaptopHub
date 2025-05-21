@@ -52,11 +52,15 @@
        	<c:set var="count" value="${count + 1}" />
     	</c:if>
         </c:forEach>
-        
-  
-      </div>
+      </div>     
     </div>
   </section> 
+  
+  
+        
+            <img src="${pageContext.request.contextPath}/images/banners/sale1.png" alt="sale" style= "height:100%; width:100%">
+        
+  
 
     <h2 class="section-title">EXPLORE OUR PAGE</h2>
 

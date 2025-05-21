@@ -25,6 +25,7 @@ public class DeleteProductController extends HttpServlet {
 
         try {
             int productId = Integer.parseInt(productIdParam);
+            //deleting product
             boolean success = deleteService.deleteProductById(productId);
 
             if (success) {

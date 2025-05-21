@@ -97,7 +97,7 @@ public class UpdateProfileController extends HttpServlet {
                     currentUser.getUser_role()
             );
 
-            // Attempt to update the user profile
+            // try update the user profile
             boolean isUpdated = updateProfileService.updateUser(updatedUser);
 
             if (isUpdated) {

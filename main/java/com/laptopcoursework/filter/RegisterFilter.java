@@ -36,5 +36,4 @@ public class RegisterFilter implements Filter {
         chain.doFilter(request, response);
     }
     
-    // init() and destroy() methods can remain empty
 }

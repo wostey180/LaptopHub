@@ -14,12 +14,14 @@ public class ChangeOrderStatusController extends HttpServlet {
     private OrderService orderService = new OrderService();
 
     @Override
+    //post method
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         int orderId = Integer.parseInt(request.getParameter("order_id"));
         String status = request.getParameter("status");
 
+        //updating order status
         orderService.updateOrderStatus(orderId, status);
 
         response.sendRedirect(request.getContextPath() + "/admin/orders");

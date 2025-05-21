@@ -64,7 +64,7 @@ public class LoginController extends HttpServlet {
         				Integer.parseInt(rs.getString("user_id")),
                         username,
                         rs.getString("user_email"),
-                        rs.getString("user_password"),  // password may be encrypted
+                        rs.getString("user_password"),  
                         rs.getString("user_address"),
                         rs.getString("user_phone"),
                         rs.getString("image_path"),

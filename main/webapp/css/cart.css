@@ -222,7 +222,7 @@
 /* Primary Button */
 .btn-primary {
   padding: 0.75rem 2rem;
-  background-color: var(--color-dark); /* You can change this to your desired primary color */
+  background-color: var(--color-dark); 
   color: white;
   border: none;
   border-radius: 4px;
@@ -232,14 +232,14 @@
 }
 
 .btn-primary:hover {
-  background-color: #333; /* Slightly darker shade on hover */
+  background-color: #333; 
 }
 
 /* Secondary Button */
 .btn-secondary {
   padding: 0.75rem 2rem;
-  background-color: #ccc; /* Light grey for the secondary button */
-  color: #333; /* Dark grey text */
+  background-color: #ccc; 
+  color: #333; 
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -249,7 +249,7 @@
 }
 
 .btn-secondary:hover {
-  background-color: #bbb; /* Darker grey on hover */
+  background-color: #bbb;
 }
 
 .summary-actions{

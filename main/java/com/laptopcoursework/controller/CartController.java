@@ -53,7 +53,7 @@ public class CartController extends HttpServlet {
                 return;
             }
 
-            // Fetch all cart items for the user
+            // Fetching all cart items for the user
             String sql = "SELECT p.product_id, p.product_name, p.description, p.image_path, p.specs, p.model, p.price, cp.quantity " +
                          "FROM cart_product cp " +
                          "JOIN product p ON cp.product_id = p.product_id " +
@@ -81,13 +81,13 @@ public class CartController extends HttpServlet {
             //request.getRequestDispatcher("/WEB-INF/pages/cart.jsp").forward(request, response);
         }
 
-        // Set the cart items as a request attribute
+        // Setting the cart items as request attribute
         
         session.setAttribute("cartItems", cartItems);
         double totalAmount = cartItems.stream().map(c -> c.getPrice()*c.getQuantity()).count();
         request.setAttribute("total_amount", totalAmount);
 
-        // Forward to the cart JSP page
+        // Forwarding to the cart JSP page
         request.getRequestDispatcher("/WEB-INF/pages/cart.jsp").forward(request, response);
     }
 

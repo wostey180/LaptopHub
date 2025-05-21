@@ -39,7 +39,7 @@ public class CheckoutController extends HttpServlet {
             String insertOrderSql = "INSERT INTO orders (order_date, total_amount, status, user_id) VALUES (?, ?, ?, ?)";
             PreparedStatement orderStmt = conn.prepareStatement(insertOrderSql, Statement.RETURN_GENERATED_KEYS);
             orderStmt.setString(1, new java.sql.Date(System.currentTimeMillis()).toString());
-            orderStmt.setDouble(2, totalAmount);  // Will update the total amount after calculating
+            orderStmt.setDouble(2, totalAmount);  // updating total amount
             orderStmt.setString(3, "Pending");  // Default status is 'Pending'
             orderStmt.setInt(4, userId);
 
@@ -57,7 +57,7 @@ public class CheckoutController extends HttpServlet {
                     for (CartItemModel cartItem : cartItems) {
                         productStmt.setInt(1, orderId);
                         productStmt.setInt(2, cartItem.getProductId());
-                        productStmt.setDouble(3, cartItem.getPrice());  // Assuming cartItem has price at time of purchase
+                        productStmt.setDouble(3, cartItem.getPrice()); 
                         productStmt.setInt(4, cartItem.getQuantity());
                         productStmt.addBatch();
                         totalAmount += cartItem.getPrice() * cartItem.getQuantity();
