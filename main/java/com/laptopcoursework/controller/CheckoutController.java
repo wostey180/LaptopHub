@@ -21,7 +21,7 @@ public class CheckoutController extends HttpServlet {
         // Retrieve the cart items from the session
         HttpSession session = request.getSession();
         List<CartItemModel> cartItems = (List<CartItemModel>) session.getAttribute("cartItems");
-        cartItems.stream().forEach(a -> System.out.print(a.getName()));
+        //cartItems.stream().forEach(a -> System.out.print(a.getName()));
 
         if (cartItems == null || cartItems.isEmpty()) {
             response.sendRedirect("cart.jsp");  // If cart is empty, redirect back to the cart page
@@ -29,9 +29,9 @@ public class CheckoutController extends HttpServlet {
         }
 
         // Get user information from the session
-        int userId = (int) session.getAttribute("userId");  // Assuming user_id is stored in session
+        int userId = (int) session.getAttribute("userId");  
         //HttpSession userId = session.getAttribute("userId");
-        System.out.print(userId);
+        //System.out.print(userId);
         double totalAmount = 0;
 
         try (Connection conn = DbConfig.getDbConnection()) {
@@ -64,6 +64,15 @@ public class CheckoutController extends HttpServlet {
                     }
 
                     productStmt.executeBatch();  // Execute all insertions at once
+                    
+                    String updateStockSql = "UPDATE product SET stock_quantity = stock_quantity - ? WHERE product_id = ?";
+                    PreparedStatement stockStmt = conn.prepareStatement(updateStockSql);
+                    for (CartItemModel cartItem : cartItems) {
+                        stockStmt.setInt(1, cartItem.getQuantity());
+                        stockStmt.setInt(2, cartItem.getProductId());
+                        stockStmt.addBatch();
+                    }
+                    stockStmt.executeBatch();  // Update stock
 
                     // Update the total amount in the 'orders' table
                     String updateOrderSql = "UPDATE orders SET total_amount = ? WHERE order_id = ?";
